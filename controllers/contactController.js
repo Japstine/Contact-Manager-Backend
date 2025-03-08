@@ -1,5 +1,6 @@
 // GET all the contacts
 const getAllContacts = (req, res) => {
+  console.log("The request body is: ", req.body);
   res.status(200).json({ message: "Get all contacts" });
 };
 
@@ -10,6 +11,15 @@ const getAContact = (req, res) => {
 
 // POST for creating contact
 const createContact = (req, res) => {
+
+  console.log("The request body is: ", req.body);
+  const {name, email, phone} = req.body;
+
+  if (!name || !email || !phone) {
+    res.status(400);
+    throw new Error("All fields are required");
+  }
+
   res.status(200).json({ message: "Creating contact" });  
 };
 
