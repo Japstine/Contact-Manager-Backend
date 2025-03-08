@@ -5,9 +5,8 @@ const app = express();
 
 const port = process.env.PORT || 7000;
 
-app.get('/api/contacts', (req, res) => {
-  res.json("Get all contacts");
-})
+// Middleware 
+app.use("/api/contacts", require("./routes/contactRoutes.js"));
 
 app.listen(port, () => {
   // Use `` for log (to pass a variable)
